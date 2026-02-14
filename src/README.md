@@ -84,3 +84,19 @@ The following UML Diagram illustrates the class hierarchy, design patterns (Fact
 This project helped me understand how to transform a simple console application into a professional web service. Integrating Design Patterns within a Spring Boot environment showed me how to write code that is not only functional but also scalable and easy to maintain.
 
 ---
+
+---
+## 🌟 Bonus Task: Singleton Cache Implementation
+
+I have implemented an **In-Memory Cache** system to improve the application's performance.
+
+### Key Features:
+* **Singleton Pattern**: The `BookCache` class ensures that only one instance of the cache exists throughout the application.
+* **Performance Optimization**: `getAllBooks()` first checks the cache before querying the database, reducing latency.
+* **Automatic Invalidation**: The cache is automatically cleared (`clear()`) during `POST` and `DELETE` operations to ensure data consistency.
+* **Layered Architecture**: The caching logic is integrated into the `BookService` layer, maintaining a clean separation of concerns.
+
+### How to verify:
+1. Perform a `GET` request to `/api/books` (First call: Database hit).
+2. Perform the same `GET` request again (Second call: Check console for "Data returned from cache!").
+3. Perform a `POST` or `DELETE` request (Check console for "Cache cleared...").
